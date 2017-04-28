@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import floor from './assets/templar_stone.jpeg';
 import './App.css';
 
 class App extends Component {
@@ -13,12 +13,14 @@ class App extends Component {
         <p className="dm-builder-intro">
           First thing to do is to create a grid. I'm looking at using foundation. For now though lets just roll our own.
         </p>
-        <Grid />
-        <Grid />
-        <Grid />
-        <Grid />
-        <Grid />
-        <Grid />
+        <div className="container">
+          <Grid />
+          <Grid />
+          <Grid />
+          <Grid />
+          <Grid />
+          <Grid />
+        </div>
       </div>
     );
   }
@@ -27,23 +29,31 @@ class App extends Component {
 class Grid extends Component {
   render() {
     return(
-      <div className="dn-builder-grid container">
+      <div className="dn-builder-grid">
         <div className="row">
-          <div className="row"></div>
-          <div className="row"></div>
-          <div className="row"></div>
+          <Row />
+          <Row />
+          <Row />
         </div>
         <div className="row">
-            <div className="row"></div>
-            <div className="row"></div>
-            <div className="row"></div>
+          <Row />
+          <Row />
+          <Row />
         </div>
         <div className="row">
-          <div className="row"></div>
-          <div className="row"></div>
-          <div className="row"></div>
+          <Row />
+          <Row />
+          <Row />
         </div>
       </div>
+    );
+  }
+}
+
+class Row extends Component {
+  render() {
+    return(
+      <div className="row"><img src={floor} className="floor-tile" alt="Floor Tile"/> </div>
     );
   }
 }
