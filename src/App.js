@@ -16,10 +16,6 @@ class App extends Component {
         <div className="container">
           <Grid />
           <Grid />
-          <Grid />
-          <Grid />
-          <Grid />
-          <Grid />
         </div>
       </div>
     );
@@ -31,29 +27,40 @@ class Grid extends Component {
     return(
       <div className="dn-builder-grid">
         <div className="row">
-          <Row />
-          <Row />
-          <Row />
+          <Tile />
+          <Tile />
+          <Tile />
         </div>
         <div className="row">
-          <Row />
-          <Row />
-          <Row />
+          <Tile />
+          <Tile />
+          <Tile />
         </div>
         <div className="row">
-          <Row />
-          <Row />
-          <Row />
+          <Tile />
+          <Tile />
+          <Tile />
         </div>
       </div>
     );
   }
 }
 
-class Row extends Component {
+class Tile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      revealed: false
+    };
+    this.toggleVisibility = this.toggleVisibility.bind(this);
+  }
+  toggleVisibility() {
+    this.setState({ revealed: !this.state.revealed });
+  }
   render() {
+    const { revealed } = this.state;
     return(
-      <div className="row"><img src={floor} className="floor-tile" alt="Floor Tile"/> </div>
+      <div className="tile" aria-hidden={!revealed} onClick={this.toggleVisibility}><img src={floor} className="floor-tile" alt="Floor Tile"/> </div>
     );
   }
 }

@@ -19,22 +19,32 @@
 /*}*/
 
 .container {
-  width: 1024px;
+  width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .row {
+  margin-bottom: -4px;
+  height: 100%;
+  width: 100%;
+  float: left;
+}
+
+.tile {
   float: left;
   width: 33.33%;
-  height: 100%;
-  margin-bottom: -2px;
-  /*border: 1px solid red;*/
+  background-color: black;
 }
 
 .floor-tile {
   width: 100%;
   height: 100%;
+  visibility: hidden;
+}
+
+[aria-hidden="false"] .floor-tile {
+  visibility: visible;
 }
 
 @keyframes App-logo-spin {
